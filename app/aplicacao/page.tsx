@@ -198,7 +198,7 @@ function Intro({ onStart }: { onStart: () => void }) {
       </p>
       <p className="text-white font-bold text-sm uppercase mb-2">O que tu destrava aqui dentro:</p>
       <ul className="text-gray-300 text-sm space-y-1 mb-8">
-        <li>→ Funil de +R$1k/dia no orgânico (sem postar vídeo, sem aparecer, sem seguidores)</li>
+        <li>→ Funil de +R$1k/dia no orgânico</li>
         <li>→ Script de Lançamento (resultado Imediato)</li>
         <li>→ Oferta Validada + Estrutura Pronta</li>
         <li>→ Acesso à network de operadores</li>
