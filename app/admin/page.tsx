@@ -25,8 +25,13 @@ export default function AdminPage() {
   const [loading, setLoading] = useState(false)
   const [selecionado, setSelecionado] = useState<Aplicacao | null>(null)
 
-  function login() {
-    if (senha === '6767') {
+  async function login() {
+    const res = await fetch('/api/admin/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ senha }),
+    })
+    if (res.ok) {
       setAutenticado(true)
       setErro(false)
     } else {
@@ -38,7 +43,7 @@ export default function AdminPage() {
     if (!autenticado) return
     setLoading(true)
     fetch('/api/admin/aplicacoes')
-      .then(r => r.json())
+      .then(r => r.ok ? r.json() : { data: [] })
       .then(d => setDados(d.data || []))
       .finally(() => setLoading(false))
   }, [autenticado])
@@ -93,11 +98,9 @@ export default function AdminPage() {
                 className="border border-gray-800 hover:border-gray-600 p-4 cursor-pointer transition-colors"
               >
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <div>
-                      <p className="font-bold text-white">{a.nome || '—'}</p>
-                      <p className="text-gray-400 text-sm">{a.whatsapp} · {a.instagram}</p>
-                    </div>
+                  <div>
+                    <p className="font-bold text-white">{a.nome || '—'}</p>
+                    <p className="text-gray-400 text-sm">{a.whatsapp} · {a.instagram}</p>
                   </div>
                   <div className="text-right">
                     <p className="text-blue-400 text-sm font-bold">{a.faturamento}</p>
