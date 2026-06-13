@@ -7,7 +7,7 @@ export default function HomePage() {
       <div className="w-full max-w-md flex flex-col items-center gap-6">
         <div className="text-center mb-2">
           <h1 className="text-white font-black text-2xl tracking-widest uppercase">
-            ALMEIDA<span className="text-red-500">GOAT</span>
+            ALMEIDA<span className="text-blue-500">GOAT</span>
           </h1>
         </div>
 
