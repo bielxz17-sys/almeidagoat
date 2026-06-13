@@ -13,15 +13,17 @@ export default function HomePage() {
 
         <Link
           href="/aplicacao"
-          className="w-full rounded-2xl border-2 border-blue-500 overflow-hidden block"
+          className="w-full rounded-2xl border-2 border-blue-500 overflow-hidden block transition-all duration-300 ease-out hover:scale-[1.03] hover:border-blue-400 active:scale-[0.98]"
           style={{ boxShadow: '0 0 60px rgba(59,130,246,0.7), 0 0 120px rgba(59,130,246,0.3)' }}
+          onMouseEnter={e => (e.currentTarget.style.boxShadow = '0 0 80px rgba(59,130,246,1), 0 0 160px rgba(59,130,246,0.5)')}
+          onMouseLeave={e => (e.currentTarget.style.boxShadow = '0 0 60px rgba(59,130,246,0.7), 0 0 120px rgba(59,130,246,0.3)')}
         >
-          <div className="relative h-72">
+          <div className="relative h-72 overflow-hidden">
             <Image
               src="/hero.jpg"
               alt="Minha operação"
               fill
-              className="object-cover object-bottom"
+              className="object-cover object-bottom transition-transform duration-500 ease-out group-hover:scale-105"
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
@@ -32,8 +34,8 @@ export default function HomePage() {
               <p className="text-gray-300 text-sm mt-1">Aplicação exclusiva — vagas limitadas</p>
             </div>
           </div>
-          <div className="flex justify-center py-4 bg-black">
-            <span className="bg-blue-600 text-white font-bold px-7 py-2 rounded-full text-sm">
+          <div className="flex justify-center py-4 bg-black group">
+            <span className="bg-blue-600 text-white font-bold px-7 py-2 rounded-full text-sm transition-all duration-300 hover:bg-blue-500 hover:px-9">
               Entrar →
             </span>
           </div>
